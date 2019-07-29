@@ -4,11 +4,13 @@ var express      = require('express'),
     LdapStrategy = require('passport-ldapauth'),
     curl         = require('curl-request');
 
-var syncGatewayEndpoint = 'http://34.209.240.10:4985/travel-sample';
+// !!! Replace localhost with Sync Gateway hostname
+var syncGatewayEndpoint = 'http://localhost:4985/travel-sample';
 var app = express();
 var OPTS = {
   server: {
-    url: 'ldap://3.18.221.126:389',
+// !!! Replace localhost with OpenLDAP server hostname
+    url: 'ldap://localhost:389',
     searchBase: 'dc=example,dc=com',
     searchFilter: '(uid={{username}})'
   }
