@@ -79,7 +79,7 @@ function createSession(request, response, resBody) {
   console.log("create session for user %s", request.body.username);
   postSession = new(curl);
   postSession.setHeaders(['Content-Type: application/json'])
-  .setBody('{"name": "' + request.body.username + '","ttl": 180}')
+  .setBody('{"name": "' + request.body.username + '","ttl": 1800}')
   .post(syncGatewayEndpoint + '/_session')
   .then(({statusCode, body, headers}) => {
     if (statusCode == 200) {
