@@ -1,0 +1,28 @@
+dn: ou=People,dc=example,dc=com
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Groups,dc=example,dc=com
+objectClass: organizationalUnit
+ou: Groups
+
+dn: cn=department,ou=Groups,dc=example,dc=com
+objectClass: posixGroup
+cn: subgroup
+gidNumber: 5000
+
+dn: uid=mobileuser,ou=People,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: mobileuser
+sn: User
+givenName: Mobile
+cn: Mobile User
+displayName: mobileuser
+uidNumber: 10000
+gidNumber: 5000
+userPassword: password
+gecos: Mobile User
+loginShell: /bin/bash
+homeDirectory: /home/mobileuser
