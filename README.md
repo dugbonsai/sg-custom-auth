@@ -8,6 +8,7 @@ Node.js-based App Server to authenticate against and OpenLDAP server using the [
 Information to pupulate the OpenLDAP database. Contains a single user **mobileuser**.
 
 The following code snippets highlight the call to the App Server and the Couchbase Lite code to authenticate using the session_id.
+
 **Authenticate user with App Server by calling POST /login/**
 JSONObject reqBody = new JSONObject();
 reqBody.put("username", <user supplied username>);
