@@ -12,10 +12,10 @@ The following code snippets highlight the call to the App Server and the Couchba
 **Authenticate user with App Server by calling POST /login/**
 
 ```JSONObject reqBody = new JSONObject();
-reqBody.put("username", &lt;user supplied username&gt;);
-reqBody.put("password", &lt;user supplied password&gt;);
+reqBody.put("username", <user supplied username>);
+reqBody.put("password", <user supplied password>);
 
-String url = &lt;App Server host&gt;:8080/login;
+String url = <App Server host>:8080/login;
 RequestQueue queue = Volley.newRequestQueue(<context>);
 JsonRequest<JSONObject> jsonRequest = new JsonObjectRequest(
      Request.Method.POST,
@@ -45,7 +45,8 @@ queue.add(jsonRequest);
 **Create one-shot replication**
 
 Create one-shot replication using saved session_id and re-authenticate if Sync Gateway session has expired.
-String syncGatewayEndpoint = "ws://<Sync Gateway Host>:4984/{database}";
+
+```String syncGatewayEndpoint = "ws://<Sync Gateway Host>:4984/{db}";
 URI url = null;
 try {
      url = new URI(mSyncGatewayEndpoint);
@@ -73,3 +74,4 @@ replicator.addChangeListener(new ReplicatorChangeListener() {
      }
 });
 replicator.start();
+```
