@@ -5,7 +5,7 @@ Code for [Custom Authentication with Couchabse Mobile blog article](https://blog
 Node.js-based App Server to authenticate against and OpenLDAP server using the [passport-ldapauth package](https://www.npmjs.com/package/passport-ldapauth) for LDAP authentication.
 
 **ldap_data.ldif**
-Information to pupulate the OpenLDAP database. Contains a single user **mobileuser**.
+Information to populate the OpenLDAP database. Contains a single user **mobileuser**.
 
 The following code snippets highlight the call to the App Server and the Couchbase Lite code to authenticate using the session_id.
 
