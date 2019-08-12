@@ -1,7 +1,15 @@
 # sg-custom-auth
 Code for [Custom Authentication with Couchabse Mobile blog article](https://blog.couchbase.com/custom-authentication-with-couchbase-mobile/).
 
-Mobile App ImplementationAll that is left to do is make the appropriate calls from the Mobile App to the App Server and Sync Gateway. The mobile app uses the Volley framework to make the REST call to the App Server. The following code snippets highlight the call to the App Server and the Couchbase Lite code to authenticate using the session_id.Authenticate mobile userAuthenticate user with App Server by calling POST /login/JSONObject reqBody = new JSONObject();
+**auth.js**
+Node.js-based App Server to authenticate against and OpenLDAP server using the [passport-ldapauth package](https://www.npmjs.com/package/passport-ldapauth) for LDAP authentication.
+
+**ldap_data.ldif**
+Information to pupulate the OpenLDAP database. Contains a single user **mobileuser**.
+
+The following code snippets highlight the call to the App Server and the Couchbase Lite code to authenticate using the session_id.
+**Authenticate user with App Server by calling POST /login/**
+JSONObject reqBody = new JSONObject();
 reqBody.put("username", <user supplied username>);
 reqBody.put("password", <user supplied password>);
 
@@ -30,7 +38,11 @@ JsonRequest<JSONObject> jsonRequest = new JsonObjectRequest(
           }
      });
 
-queue.add(jsonRequest);Create one-shot replicationCreate one-shot replication using saved session_id (line 13) and re-authenticate if Sync Gateway session has expired.String syncGatewayEndpoint = "ws://<Sync Gateway Host>:4984/{database}";
+queue.add(jsonRequest);
+
+**Create one-shot replication**
+Create one-shot replication using saved session_id and re-authenticate if Sync Gateway session has expired.
+String syncGatewayEndpoint = "ws://<Sync Gateway Host>:4984/{database}";
 URI url = null;
 try {
      url = new URI(mSyncGatewayEndpoint);
