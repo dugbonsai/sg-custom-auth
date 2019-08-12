@@ -15,7 +15,7 @@ JSONObject reqBody = new JSONObject();
 reqBody.put("username", &lt;user supplied username&gt;);
 reqBody.put("password", &lt;user supplied password&gt;);
 
-String url = <App Server host>:8080/login;
+String url = &lt;App Server host&gt;:8080/login;
 RequestQueue queue = Volley.newRequestQueue(<context>);
 JsonRequest<JSONObject> jsonRequest = new JsonObjectRequest(
      Request.Method.POST,
