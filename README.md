@@ -64,7 +64,8 @@ Replicator replicator = new Replicator(config);
 replicator.addChangeListener(new ReplicatorChangeListener() {
      @Override
      public void changed(ReplicatorChange change) {
-          CouchbaseLiteException error = change.getStatus().getError();            if (error != null) {
+          CouchbaseLiteException error = change.getStatus().getError();
+          if (error != null) {
                if (error.getCode() == 10401) {                          
                     // session expired; re-authenticate
                }
