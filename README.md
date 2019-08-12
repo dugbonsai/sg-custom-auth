@@ -12,8 +12,8 @@ The following code snippets highlight the call to the App Server and the Couchba
 **Authenticate user with App Server by calling POST /login/**
 
 JSONObject reqBody = new JSONObject();
-reqBody.put("username", <user supplied username>);
-reqBody.put("password", <user supplied password>);
+reqBody.put("username", &lt;user supplied username&gt;);
+reqBody.put("password", &lt;user supplied password&gt;);
 
 String url = <App Server host>:8080/login;
 RequestQueue queue = Volley.newRequestQueue(<context>);
